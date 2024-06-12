@@ -28,24 +28,18 @@ const LostItemReport = () => {
   const [createLostItem, { isLoading, error }] = useCreateLostItemMutation();
 
   if (error) {
-
-
     toast.warning("fetch error");
   }
 
   const user = userInformation();
 
   const handleSubmit = async (data: FieldValues) => {
-
-
-
     const payload = data as TCreateLostItem;
     payload.userId = user?.userId as string;
 
     try {
       const res = await createLostItem(payload).unwrap();
       console.log("unwrap", res);
-
 
       if ("data" in res) {
         res.data?.data.id && toast.success(res?.data?.message);
@@ -58,7 +52,7 @@ const LostItemReport = () => {
     }
   };
   return (
-    <Container sx={{ marginTop: "5rem", }}>
+    <Container sx={{ marginTop: "5rem" }}>
       <Typography variant="h6">Submit Lost Property</Typography>
       <Box
         sx={{
@@ -66,7 +60,6 @@ const LostItemReport = () => {
           justifyContent: "center",
           alignItems: "center",
           marginTop: "2rem",
-
         }}
       >
         <Paper
@@ -75,7 +68,8 @@ const LostItemReport = () => {
             padding: "2rem",
           }}
         >
-          <UseForm onSubmit={handleSubmit}
+          <UseForm
+            onSubmit={handleSubmit}
             resolver={zodResolver(lostItemResolver)}
           >
             <Grid container spacing={2}>
@@ -97,11 +91,7 @@ const LostItemReport = () => {
                 />
               </Grid>
               <Grid item xs={12} md={6}>
-                <UseInput
-                  name="lostDate"
-                  type="date"
-                  size="small"
-                />
+                <UseInput name="lostDate" type="date" size="small" />
               </Grid>
               <Grid item xs={12} md={6}>
                 <UseInput
@@ -119,7 +109,7 @@ const LostItemReport = () => {
                   size="small"
                 />
               </Grid>
-              <Grid item xs={12} md={6} >
+              <Grid item xs={12} md={6}>
                 <UseTextArea
                   name="description"
                   type="text"
@@ -128,7 +118,6 @@ const LostItemReport = () => {
                 />
               </Grid>
               <Grid item xs={12}>
-
                 <Typography variant="h6">
                   Contact Information (optional)
                 </Typography>
