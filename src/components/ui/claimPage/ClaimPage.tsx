@@ -39,7 +39,7 @@ const ClaimPage = ({ open, setOpen, foundItemId }: TProp) => {
         setOpen(false)
 
       } else {
-        toast.error(res.err.message);
+        toast.error("you can't claim your product");
       }
     } catch (error) {
       console.log("claim page internal problem", error);
