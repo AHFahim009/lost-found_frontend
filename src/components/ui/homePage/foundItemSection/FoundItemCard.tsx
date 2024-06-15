@@ -73,7 +73,9 @@ const FoundItemCard = ({
         >
 
           <Link href={`/claimPage/${id}`}>
-            <VisibilitySharpIcon />
+            <VisibilitySharpIcon
+              sx={{ width: "40px", height: "40px", }}
+            />
           </Link>
         </Box>
       </Card>

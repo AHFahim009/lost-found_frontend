@@ -1,8 +1,8 @@
-import Checked from "@/components/ui/checked/Checked"
+import CheckedDialog from "@/components/ui/checked/Checked"
 
 const page = () => {
   return (
-    <div><Checked /></div>
+    <div><CheckedDialog /></div>
   )
 }
 export default page

@@ -19,15 +19,16 @@ const roles = ["USER", "ADMIN"];
 export interface SimpleDialogProps {
   selectorOpen: boolean;
   children: React.ReactNode;
+  title?: string;
   onClose: () => void;
 }
 
 export function UseSelector(props: SimpleDialogProps) {
-  const { selectorOpen, children, onClose } = props;
+  const { selectorOpen, children, onClose, title } = props;
 
   return (
     <Dialog open={selectorOpen} onClose={onClose}>
-      <DialogTitle>Update Role</DialogTitle>
+      <DialogTitle>{title}</DialogTitle>
       {children}
     </Dialog>
   );

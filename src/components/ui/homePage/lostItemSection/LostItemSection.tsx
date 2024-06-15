@@ -24,7 +24,7 @@ const LostItemSection = () => {
           <Typography variant="h5" marginBottom="2rem">Recent Lost Report</Typography>
           <Typography component="p" sx={{ cursor: "pointer" }}>More</Typography>
         </Stack>
-        <Grid container justifyContent="space-between" alignItems="center" spacing={2}>
+        <Grid container alignItems="center" spacing={2}>
           {isLoading ? Array.from(new Array(4)).map((_, index) => (
             <SkeletonGrid lg={3} key={index} />
           )) : getLostItem && getLostItem.data?.data.map((data) => (

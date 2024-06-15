@@ -46,22 +46,12 @@ const AdminSidebar = ({ loggedUser }: { loggedUser: string }) => {
               icon=<CameraEnhanceSharpIcon />
               path={`${rootPath}/userManagement`}
             />
+
             <SidebarGenerator
-              name="Lost Post"
-              icon=<CameraEnhanceSharpIcon />
-              path={`${rootPath}/lostPost`}
-            />
-            <SidebarGenerator
-              name="Found Post"
+              name="Post"
               icon=<CameraEnhanceSharpIcon />
               path={`${rootPath}/foundReport`}
             />
-            <SidebarGenerator
-              name="Claim Post"
-              icon=<CameraEnhanceSharpIcon />
-              path={`${rootPath}/claimPost`}
-            />
-
           </List>
         </Collapse>
       </List>

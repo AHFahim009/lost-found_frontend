@@ -57,6 +57,9 @@ const LostItemCard = ({
         <Box
           className="overlay"
           sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
             position: "absolute",
             height: "100%",
             width: "100%",
@@ -65,12 +68,13 @@ const LostItemCard = ({
             opacity: 0,
             transition: "opacity 0.3s ease",
             backgroundColor: "#0000006b",
-            cursor: "pointer"
+            cursor: "pointer",
+
           }}
         >
 
           <Link href={`/singleLostDetail/${id}`}>
-            <VisibilitySharpIcon />
+            <VisibilitySharpIcon sx={{ width: "40px", height: "40px", }} />
           </Link>
         </Box>
       </Card>

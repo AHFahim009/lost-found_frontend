@@ -19,10 +19,25 @@ export const claimReportApi = baseApi.injectEndpoints({
       },
       invalidatesTags: [tagTypes.claim]
     }),
+    updateClaim: builder.mutation({
+      query: (payload) => {
+
+
+        return {
+
+          url: `/claims/${payload.claimId}`,
+          method: 'PUT',
+          data: payload.data,
+
+        }
+      },
+      invalidatesTags: [tagTypes.foundItem, tagTypes.claim]
+    }),
 
   }),
 });
 
 export const {
-  useCreateClaimMutation
+  useCreateClaimMutation,
+  useUpdateClaimMutation
 } = claimReportApi;

@@ -55,7 +55,7 @@ export type TAdminFoundItemRes = {
   foundDate: string;
   phoneNumber: number | null;
   email: string | null;
-  claim: TClaimRes;
+  Claim: TClaimRes;
   createdAt: string;
   updatedAt: string;
 };

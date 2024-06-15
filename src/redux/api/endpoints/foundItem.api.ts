@@ -1,6 +1,6 @@
 import { AxiosResponseType } from "@/types/globalType/global.type";
 import { baseApi } from "../baseApi";
-import { TFoundItemRes } from "@/types/responseType/response.type";
+import { TAdminFoundItemRes, TFoundItemRes } from "@/types/responseType/response.type";
 import { TCreateFoundItem, TUpdateLostItem } from "@/types/dataType/data.type";
 import { tagTypes } from "../tagTypes";
 
@@ -46,7 +46,7 @@ export const foundItemApi = baseApi.injectEndpoints({
 
     ),
 
-    singleFoundItem: builder.query<AxiosResponseType<TFoundItemRes>, string>({
+    singleFoundItem: builder.query<AxiosResponseType<TAdminFoundItemRes>, string>({
       query: (findItemId) => {
         return {
           url: `/single-found-item/${findItemId}`,

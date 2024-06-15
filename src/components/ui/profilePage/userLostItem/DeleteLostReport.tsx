@@ -18,6 +18,10 @@ const DeleteLostReport = ({ openAlert, setOpenAlert, deleteId }: TProp) => {
   const handleDelete = async () => {
     try {
       const res = await deleteLostItem(deleteId).unwrap();
+      console.log(deleteId);
+
+      console.log(res);
+
       if ("data" in res) {
         res.data && toast.success(res.data.message);
       } else {

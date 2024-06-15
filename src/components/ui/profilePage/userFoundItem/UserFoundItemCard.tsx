@@ -17,6 +17,7 @@ import DeleteIcon from "@mui/icons-material/DeleteForeverOutlined";
 import EditFoundReport from "./EditFoundReport";
 import DeleteLostReport from "../userLostItem/DeleteLostReport";
 import { TFoundItemRes } from "@/types/responseType/response.type";
+import DeleteFoundReport from "./DeleteFoundReport";
 
 const UserFoundItemCard = ({
   id,
@@ -162,7 +163,7 @@ const UserFoundItemCard = ({
       )}
 
       {openAlert && (
-        <DeleteLostReport
+        <DeleteFoundReport
           openAlert={openAlert}
           setOpenAlert={setOpenAlert}
           deleteId={deleteId}

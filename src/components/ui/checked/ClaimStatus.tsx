@@ -14,12 +14,14 @@ import { blue } from "@mui/material/colors";
 import { useUpdateUserRoleMutation } from "@/redux/api/endpoints/user.api";
 import { toast } from "sonner";
 import { UseSelector } from "@/components/Dialog/useSeletor/UseSelector";
+import { useUpdateClaimMutation } from "@/redux/api/endpoints/claim.api";
 
 const roles = ["APPROVED", "REJECTED", "PENDING"];
 
 type TProp = {
   selectorOpen: boolean;
   setSelectorOpen: any;
+  setFullDialogOpen: any;
   userId: string;
   onClose: () => void;
 };
@@ -27,48 +29,54 @@ type TProp = {
 export const ClaimStatusUpdate = ({
   selectorOpen,
   setSelectorOpen,
+  setFullDialogOpen,
   userId,
   onClose,
 }: TProp) => {
-  const [updateRole] = useUpdateUserRoleMutation();
+  const [updateStatus] = useUpdateClaimMutation()
 
   const handleListItemClick = async (value: string) => {
     console.log(value);
 
     const payload = {
-      id: userId,
+      claimId: userId,
       data: {
-        role: value,
-      },
+        status: value
+      }
     };
+    console.log(payload);
+
+
+    console.log("payload", payload);
 
     try {
-      const res = await updateRole(payload).unwrap();
+      const res = await updateStatus(payload).unwrap();
+      console.log(res);
+
       if ("data" in res) {
         res.data && toast.success(res.data?.message);
       } else {
-        toast.error(res.err.message);
+        toast.error(res.err);
       }
     } catch (error) {
       console.log("edit found page internal problem", error);
     } finally {
       setSelectorOpen(false);
+      setFullDialogOpen(false)
     }
   };
 
   return (
     <div>
-      <UseSelector selectorOpen={selectorOpen} onClose={onClose}>
+      <UseSelector selectorOpen={selectorOpen} onClose={onClose} title="Change Status">
         <List sx={{ pt: 0 }}>
           {roles.map((email) => (
-            <ListItem disableGutters key={email}>
+            <ListItem disableGutters key={email}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
               <ListItemButton onClick={() => handleListItemClick(email)}>
-                <ListItemAvatar>
-                  <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
-                    <PersonIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={email} />
+
+                <ListItemText primary={email} sx={{ textAlign: "center" }} />
               </ListItemButton>
             </ListItem>
           ))}

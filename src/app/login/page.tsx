@@ -8,6 +8,7 @@ import { storedUserInfo } from "@/services/auth.services";
 import { globalResponse } from "@/types/globalType/global.type";
 import { TAuthRes } from "@/types/responseType/response.type";
 import { Box, Button, Grid, Typography, Paper, Stack } from "@mui/material";
+import { log } from "console";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -27,13 +28,20 @@ const Login = () => {
         payload
       )) as globalResponse<TAuthRes>;
 
-      if (loginRes.data.accessToken) {
+
+
+      if (loginRes?.data?.accessToken) {
         toast.success("User logged successfully...");
         // store in  auth data in local storage
         storedUserInfo({ accessToken: loginRes.data.accessToken });
         // push in home page
         router.push("/");
       }
+      else {
+        toast.error(loginRes.message || "Login failed. Please try again.");
+
+      }
+
     } catch (error) {
       console.log("login page internal problem", error);
     } finally {
@@ -84,8 +92,15 @@ const Login = () => {
             </Grid>
             <Grid sm={12}>
               <Link href="/register">
-                <small style={{ display: 'flex', justifyContent: "flex-end", marginTop: "2px" }}>register</small>
-
+                <small
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    marginTop: "2px",
+                  }}
+                >
+                  register
+                </small>
               </Link>
             </Grid>
             <Grid xs={12} item>

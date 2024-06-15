@@ -26,7 +26,7 @@ const FoundItemSection = () => {
             <Typography component="p" sx={{ cursor: "pointer" }}>More</Typography>
           </Link>
         </Stack>
-        <Grid container justifyContent="space-between" alignItems="center" spacing={2}>
+        <Grid container alignItems="center" spacing={2}>
           {isLoading ? Array.from(new Array(4)).map((_, index) => (
             <SkeletonGrid lg={3} key={index} />
           )) : getFoundItem && getFoundItem.data?.data.map((data) => (
