@@ -43,6 +43,8 @@ const EditProfile = ({ open, setOpen, title, userId }: TProp) => {
       data: data,
     };
 
+    console.log(payload);
+
     try {
       const res = await updateProfileData(payload).unwrap();
       if ("data" in res) {

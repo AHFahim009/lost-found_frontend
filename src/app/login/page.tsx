@@ -29,6 +29,7 @@ const Login = () => {
       )) as globalResponse<TAuthRes>;
 
 
+      console.log(loginRes);
 
       if (loginRes?.data?.accessToken) {
         toast.success("User logged successfully...");
