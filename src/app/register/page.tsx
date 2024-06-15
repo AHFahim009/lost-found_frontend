@@ -153,7 +153,7 @@ const RegisterPage = () => {
               />
             </Grid>
             <Grid sm={12}>
-              <Link href="/register">
+              <Link href="/login">
                 <small style={{ display: 'flex', justifyContent: "flex-end", marginTop: "2px" }}>login</small>
 
               </Link>

@@ -84,8 +84,7 @@ const FoundItemReport = () => {
               <Grid item xs={12} md={6}>
                 <UseInput
                   name="foundDate"
-                  type="text"
-                  placeholder="found Date"
+                  type="date"
                   size="small"
                 />
               </Grid>

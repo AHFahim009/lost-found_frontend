@@ -12,7 +12,7 @@ import { useGetAllLostItemQuery } from "@/redux/api/endpoints/lostItem.api";
 
 const LostItemSection = () => {
   const { data: getLostItem, isLoading } = useGetAllLostItemQuery({
-    take: 1
+    take: 4
   })
 
 
