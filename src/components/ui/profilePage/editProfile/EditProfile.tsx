@@ -81,7 +81,7 @@ const EditProfile = ({ open, setOpen, title, userId }: TProp) => {
               <Grid item xs={12} md={6}>
                 <UseInput
                   name="age"
-                  type="text"
+                  type="number"
                   placeholder="Age"
                   size="small"
                 />

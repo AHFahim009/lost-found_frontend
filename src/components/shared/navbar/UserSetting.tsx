@@ -28,7 +28,7 @@ const UserSetting = () => {
     removeUser();
     setAnchorElUser(null);
     router.push("/");
-    router.refresh();
+
   };
 
   const user = userInformation();
