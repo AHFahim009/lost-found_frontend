@@ -70,6 +70,8 @@ const UserClaimItemCard = ({
           }}
         >
           <Image
+            width={500}
+            height={500}
             src={foundItem && foundItem?.photo ? foundItem.photo : noImage}
             alt="no image"
             style={{ width: "100%", height: "100%", objectFit: "contain" }}

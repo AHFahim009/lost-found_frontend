@@ -83,6 +83,8 @@ const UserFoundItemCard = ({
             }}
           >
             <Image
+              width={500}
+              height={500}
               src={photo ? photo : noImage}
               alt="no image"
               style={{ width: "100%", height: "100%", objectFit: "contain" }}

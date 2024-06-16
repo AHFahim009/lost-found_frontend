@@ -65,7 +65,7 @@ export const foundItemApi = baseApi.injectEndpoints({
         return {
           url: `/single-update-found-item/${payload.id}`,
           method: "PATCH",
-          data: payload,
+          data: payload.data,
         };
       },
       invalidatesTags: [tagTypes.foundItem]

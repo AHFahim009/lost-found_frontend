@@ -1,3 +1,4 @@
+"use client"
 import { Box, Button, Grid, Typography } from "@mui/material";
 import UseInput from "@/components/useForm/UseInput";
 import UseForm from "@/components/useForm/UseForm";
@@ -25,18 +26,21 @@ const defaultValues = {
 };
 
 const EditFoundReport = ({ open, setOpen, foundItemId }: TProp) => {
-  const [updateFoundItem, { isLoading: foundLoading, error: foundingError }] =
-    useUpdateFoundItemMutation();
-  if (foundingError) {
-    toast.error("fetch error");
-  }
   const {
     data: foundLostItem,
     isLoading,
     error,
   } = useSingleFoundItemQuery(foundItemId);
 
+  console.log("single data", foundLostItem);
+
+
   if (error) {
+    toast.error("fetch error");
+  }
+  const [updateFoundItem, { isLoading: foundLoading, error: foundingError }] =
+    useUpdateFoundItemMutation();
+  if (foundingError) {
     toast.error("fetch error");
   }
 
@@ -57,7 +61,7 @@ const EditFoundReport = ({ open, setOpen, foundItemId }: TProp) => {
       const res = await updateFoundItem(payload).unwrap();
       if ("data" in res) {
         res.data?.data.id && toast.success(res.data?.message);
-        setOpen(false)
+        setOpen(false);
       } else {
         toast.error(res.err.message);
       }
@@ -77,7 +81,7 @@ const EditFoundReport = ({ open, setOpen, foundItemId }: TProp) => {
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <UseInput
-                name="lostItemName"
+                name="foundItemName"
                 type="text"
                 placeholder="what was found"
                 size="small"
@@ -101,7 +105,7 @@ const EditFoundReport = ({ open, setOpen, foundItemId }: TProp) => {
             </Grid>
             <Grid item xs={12} md={6}>
               <UseInput
-                name="lostDate"
+                name="foundDate"
                 type="text"
                 placeholder="found Date"
                 size="small"
